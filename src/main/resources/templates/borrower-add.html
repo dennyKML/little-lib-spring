@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Borrower</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="mb-4">Add a New Borrower</h1>
+<form action="/borrowers/add" method="post">
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+        <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="borrowedBook" class="form-label">Borrowed Book</label>
+        <select id="borrowedBook" name="borrowedBook.id" class="form-select">
+            <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.title}"></option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Borrower</button>
+</form>
+</body>
+</html>

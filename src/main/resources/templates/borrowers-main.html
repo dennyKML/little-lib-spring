@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+<h1 class="mb-4">Borrowers</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Borrowed Book</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="borrower : ${borrowers}">
+        <td th:text="${borrower.id}"></td>
+        <td th:text="${borrower.firstName}"></td>
+        <td th:text="${borrower.lastName}"></td>
+        <td th:text="${borrower.dateOfBirth}"></td>
+        <td th:text="${borrower.borrowedBook.title}"></td>
+    </tr>
+    </tbody>
+</table>
+<div class="mb-4 d-flex justify-content-between align-items-center">
+    <a href="/borrowers/add" class="btn btn-success">Add New Borrower</a>
+    <a href="/" class="btn btn-success">Back To Home</a>
+</div>
+</body>
+</html>
